@@ -1,0 +1,35 @@
+<%- model_class = Timeline -%>
+<div class="container">
+<div class="page-header">
+  <h1> Your TimeLines </h1>
+</div>
+<table class="table table-striped">
+  <tbody>
+    <% @timelines.each do |timeline| %>
+      <tr>
+        <td><%= timeline.title %></td>
+        <td><%= timeline.focus_date %></td>
+        <td><%= timeline.initial_zoom %></td>
+        <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      timeline_path(timeline), :class => 'btn btn-success' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<a data-toggle="modal" href="#Create_TimeLine" class="btn btn-primary" data-remote='false'>New</a>
+
+</div> <!-- /container -->
+
+<div id="Create_TimeLine" class="modal hide fade" tabindex="-2" role="dialog" aria-labelledby="Create_TimeLine_label" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3 id="Create_TimeLine_label">Creating TimeLine</h3>
+
+  </div>
+  <div class="modal-body">
+    <%= render :partial => 'timelines/form' %>
+  </div>
+</div>
