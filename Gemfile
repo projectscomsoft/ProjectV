@@ -51,6 +51,3 @@ end
 # gem 'debugger', group: [:development, :test]
 
 
-group :development do
-  gem 'sqlite3'
-end
